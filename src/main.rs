@@ -11,8 +11,20 @@ struct Player {
     score: u32,
 }
 
+#[derive(Debug)]
 struct Game {
     players: Vec<Player>,
+}
+impl Game {
+    fn new() -> Self {
+        Game{
+            players: Vec::new(),
+        }
+    }
+
+    fn add_player(&mut self, player: Player) {
+        self.players.push(player);
+    }
 }
 
 fn new_player(id: String) -> Player {
@@ -24,7 +36,9 @@ fn new_player(id: String) -> Player {
 }
 
 fn main() {
-    let id: String = "abc".to_string();
-    let player = new_player(id);
-    println!("Created player {:?}", player)
+    let mut game = Game::new();
+    for i in 0..6 {
+        game.add_player(new_player(i.to_string()))
+    }
+    println!("Created game: {:?}", game);
 }
