@@ -8,6 +8,7 @@ enum Card {
 struct Player {
     id: String,
     hand: [Card; 4],
+    score: u32,
 }
 
 struct Game {
@@ -16,7 +17,10 @@ struct Game {
 
 
 fn new_player(id: String) -> Player {
-    Player{id, hand: [Card::Skull, Card::Flower, Card::Flower, Card::Flower]}
+    Player{id,
+        hand: [Card::Skull, Card::Flower, Card::Flower, Card::Flower],
+        score: 0
+    }
 }
 
 
