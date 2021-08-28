@@ -12,17 +12,16 @@ struct Player {
 }
 
 struct Game {
-    players: Vec<Player>
+    players: Vec<Player>,
 }
-
 
 fn new_player(id: String) -> Player {
-    Player{id,
+    Player {
+        id,
         hand: [Card::Skull, Card::Flower, Card::Flower, Card::Flower],
-        score: 0
+        score: 0,
     }
 }
-
 
 fn main() {
     let id: String = "abc".to_string();
